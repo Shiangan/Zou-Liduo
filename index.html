@@ -16,7 +16,7 @@
     
     <style>
         @font-face { font-family: 'ZF-Font'; src: url('Zf-Font.ttf') format('truetype'); font-display: swap; }
-              @font-face { font-family: 'Iansui'; src: url('Iansui-Regular.ttf') format('truetype'); font-display: swap; }
+        @font-face { font-family: 'Iansui'; src: url('Iansui-Regular.ttf') format('truetype'); font-display: swap; }
         
         :root { 
             --bg-deep: #e8e2d6;    /* 整體底色 */
@@ -110,7 +110,7 @@
             font-size: 13px; color: var(--sub-ink); margin-bottom: 12px; 
             display: flex; align-items: flex-start; line-height: 1.6; text-align: justify; 
         }
-        .notice-item::before { content: "‧"; color: var(--gold); font-weight: 900; margin-right: 8px; }
+        .notice-item::before { content: "‧"; color: var(--gold-light); font-weight: 900; margin-right: 8px; }
 
         .info-card { 
             border-radius: 8px; padding: 35px 25px; margin-bottom: 25px; 
@@ -230,12 +230,21 @@
                 <div class="info-value">台北市立第二殯儀館</div>
                 <div class="info-value">景行樓 2F [ 至孝四廳 ]</div>
                 <div class="info-sub">臺北市大安區辛亥路三段330號</div>
-                <div class="notice-card">
+            </div>
+
+            <div class="info-card" style="margin-top: 20px; border-style: dashed;">
+                <span class="info-label">平日安靈地點</span>
+                <div class="info-value">台北市立第二殯儀館</div>
+                <div class="info-value">景行樓 3F [ 蓮位堂 D5-02 ]</div>
+                <div class="info-sub">親友平日可前往上香弔唁</div>
+            </div>
+
+            <div class="notice-card">
                 <div class="notice-item">請著整齊、樸素衣物出席，以表尊敬與追思之意。</div>
                 <div class="notice-item">園區內請勿說「再見」，以「平安」代替即可。</div>
                 <div class="notice-item">奠禮會場備有淨水，若有需要可以自行取用。</div>
                 <div class="notice-item">若因宗教信仰不方便持香，與工作人員示意即可。</div>
-                <a href="https://maps.app.goo.gl/3f6LZVs1Ew1Q2pEg7?g_st=ic" target="_blank" class="btn-action btn-outline">📍 開啟地圖導航</a>
+                <a href="https://maps.app.goo.gl/3A7R7wT6P9C9F9V8A" target="_blank" class="btn-action btn-outline">📍 開啟地圖導航</a>
             </div>
             <a href="javascript:void(0)" class="btn-action btn-solid" onclick="addCal()">📅 加入手機行事曆</a>
         </section>
@@ -251,9 +260,9 @@
                         <div class="grid-item" onclick="zoom('image/花籃C款.JPG')"><img src="image/花籃C款.JPG"><p>樣式 C</p><span>NT$ 3,500 / 對</span></div>
                         <div class="grid-item" onclick="zoom('image/花籃D款.JPG')"><img src="image/花籃D款.JPG"><p>樣式 D</p><span>NT$ 4,500 / 對</span></div>
                         <div class="grid-item" onclick="zoom('image/花籃E款.JPG')"><img src="image/花籃E款.JPG"><p>樣式 E</p><span>NT$ 5,000 / 對</span></div>
-                        <div class="grid-item" onclick="zoom('image/花籃F款.JPG')"><img src="image/花籃F款.JPG"><p>樣式 E</p><span>NT$ 5,500 / 對</span></div>
-                        <div class="grid-item" onclick="zoom('image/花籃G款.JPG')"><img src="image/花籃G款.JPG"><p>樣式 E</p><span>NT$ 6,000 / 對</span></div>
-                        <div class="grid-item" onclick="zoom('image/花籃H款.JPG')"><img src="image/花籃H款.JPG"><p>樣式 E</p><span>NT$ 6,500 / 對</span></div>
+                        <div class="grid-item" onclick="zoom('image/花籃F款.JPG')"><img src="image/花籃F款.JPG"><p>樣式 F</p><span>NT$ 5,500 / 對</span></div>
+                        <div class="grid-item" onclick="zoom('image/花籃G款.JPG')"><img src="image/花籃G款.JPG"><p>樣式 G</p><span>NT$ 6,000 / 對</span></div>
+                        <div class="grid-item" onclick="zoom('image/花籃H款.JPG')"><img src="image/花籃H款.JPG"><p>樣式 H</p><span>NT$ 6,500 / 對</span></div>
                     </div>
                 </div>
             </div>
@@ -311,14 +320,19 @@
     const lb = document.getElementById('lightbox');
     const lbi = document.getElementById('lbi');
 
+    // 已同步更新分享文字
     const FULL_INFO = `【🍀追思告別】鄒立鐸 先生
 
 🕯️ 奠禮日期：西元 2026 年 02 月 03 日 (星期二)
 🕯️ 家奠禮：上午 10:00
 🕯️ 公奠禮：隨即舉行
-📍 奠禮地點：台北市立第二殯儀館
-📝 奠禮禮廳：景行樓 2F [至孝四廳]
-(臺北市大安區辛亥路三段330號)
+📍 奠禮地點：台北市立第二殯儀館 [至孝四廳]
+📝 奠禮禮廳：景行樓 2F [至孝四廳］
+
+🏠 安靈地點：台北市立第二殯儀館
+📝 位置：景行樓 3F [蓮位堂 D5-02]
+
+🌹敬邀您一同參與，家人們誠摯感謝
 
 🔗 雲端訃告詳情：${window.location.href}`;
 
@@ -370,7 +384,7 @@
         document.body.appendChild(t); t.select(); 
         document.execCommand('copy');
         document.body.removeChild(t); 
-        alert("奠禮資訊已複製。");
+        alert("奠禮及安靈資訊已複製。");
     }
 
     function shareLine() { 
